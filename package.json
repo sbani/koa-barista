@@ -1,0 +1,27 @@
+{
+  "name": "koa-barista",
+  "version": "0.0.1",
+  "description": "Router (barista) middleware for Koa",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbani/koa-barista.git"
+  },
+  "keywords": [
+    "koa",
+    "barista",
+    "router"
+  ],
+  "author": "Sufijen Bani <sufijen@sbani.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbani/koa-barista/issues"
+  },
+  "homepage": "https://github.com/sbani/koa-barista",
+  "dependencies": {
+    "barista": "~0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
