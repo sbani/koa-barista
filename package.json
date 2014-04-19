@@ -1,6 +1,6 @@
 {
   "name": "koa-barista",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Router (barista) middleware for Koa",
   "main": "index",
   "repository": {
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/sbani/koa-barista",
   "dependencies": {
-    "barista": "~0.2.0"
+    "barista": "~0.2.0",
+    "debug": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,6 +1,7 @@
-var barista = new require('barista').Router,
-    util = require('util'),
-    fs = require('fs')
+var barista = new require('barista').Router
+var util = require('util')
+var fs = require('fs')
+var debug = require('debug')('koa-barista')
 
 
 // Export
@@ -12,8 +13,8 @@ module.exports = Router
  *
  * @param {Object} Options List of options
  */
-function Router(options) {
-  this.options = options || {};
+function Router(directory) {
+  this.directory = directory || ''
   barista.call(this)
 }
 
@@ -44,17 +45,19 @@ Router.prototype.callback = function() {
     // No match found
 
     if (match === false) {
+      debug('no match found for url: "%s"', this.request.url)
       yield next
       return
     }
 
     // Try to get the controller file
 
-    var dir = self.options.directory || ''
+    var dir = self.directory
 
     var filename = dir + match.controller + '.js'
 
     if (!fs.existsSync(filename)) {
+      debug('controller file does not exist: "%s"', match.controller)
       yield next
       return
     }
@@ -64,12 +67,14 @@ Router.prototype.callback = function() {
     var controller = require(filename)
 
     if (typeof controller[match.action] === 'function') {
+      debug('route url to controller "%s" and action "%s', controller, match.action)
       yield controller[match.action]
       return
     }
 
-    // Nothing found
+    // Action not found
 
+    debug('action "%s" in controller "%s" not found', match.action, controller)
     yield next
 
   }

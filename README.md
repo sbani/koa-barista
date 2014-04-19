@@ -16,11 +16,9 @@ npm install koa-barista
 var app = require('koa')()
 var koa_barista = require('koa-barista')
 
-// Add routes
+// Add routes and give routes directory
 
-var router = new koa_barista({
-  directory: __dirname + '/routes/' // Options array is currently directory only
-})
+var router = new koa_barista(__dirname + '/routes/')
 
 // See barista to learn how to add routes
 
