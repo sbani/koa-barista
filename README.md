@@ -14,7 +14,7 @@ npm install koa-barista
 
 ```javascript
 var app = require('koa')()
-var koa_barista = require('../index')
+var koa_barista = require('koa-barista')
 
 // Add routes
 
@@ -27,16 +27,16 @@ var router = new koa_barista({
 router.match('/profiles/:username', 'GET')
       .to('user.show')
 
-// Addd middleware
+// Add middleware
 
 app.use(router.callback())
 
 app.listen(1337)
 ```
 
-### Appends koa context
+### In route/controller
 
-koa-barista is adding the router object to koa's context. There will also be added the matching object from barista to make sure you can use it.
+koa-barista is adding the router object to koa's context. There will also be added the matching object from barista to make sure you can use it in your app.
 
 ```javascript
 app.use(function *() {
@@ -70,10 +70,6 @@ This could output:
 ## It's broken!
 
 Shit happens.
-
-Write a test that fails and add it to the tests folder,
-then create an issue!
-
 Contributors and patches are welcome!
 
 
