@@ -1,6 +1,7 @@
 var barista = new require('barista').Router
 var util = require('util')
 var fs = require('fs')
+var path = require('path')
 var debug = require('debug')('koa-barista')
 
 
@@ -54,7 +55,7 @@ Router.prototype.callback = function() {
 
     var dir = self.directory
 
-    var filename = dir + match.controller + '.js'
+    var filename = path.join(dir, match.controller + '.js')
 
     if (!fs.existsSync(filename)) {
       debug('controller file does not exist: "%s"', match.controller)
