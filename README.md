@@ -73,4 +73,4 @@ Contributors and patches are welcome!
 
 ## Who are you?
 
-I'm [Sufijen Bani](mailto:sufijen@sbani.net), [Website](http://www.sbani.net).
+I'm [Sufijen Bani](mailto:node@sbani.net), [Website](http://www.sbani.net).
